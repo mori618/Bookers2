@@ -1,10 +1,12 @@
-<% @books.each do |post_image| %>
+<% @books.each do |book| %>
   <div>
     <%= link_to book_path(book.id) do %>
-    <%= image_tag book.get_image %>
+      <%= image_tag book.get_image %>
+    <% end %>
     <p>ユーザー：<%= image_tag 'sample-author1.jpg' %></p>
-    <p>題名：<%= post_image.shop_name %></p>
-    <p>感想：<%= post_image.caption %></p>
-    <p>ユーザーネーム：<%= post_image.user.name %></p>
+    <p>題名：<%= book.title %></p>
+    <p>感想：<%= book.body %></p>
+    <p>ユーザーネーム：<%= book.user.name %></p>
+
   </div>
 <% end %>
