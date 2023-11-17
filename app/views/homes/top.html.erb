@@ -1,2 +1,11 @@
-<h1>Homes#top</h1>
-<p>Find me in app/views/homes/top.html.erb</p>
+<h1 class="title">Bookers</h1>
+<div class="link-block">
+  <li class="link">
+    <%= link_to "Sign up", new_user_registration_path, {:class => "link"} %>
+  </li>
+</div>
+<div class="link-block-2">
+  <li class="link">
+   <%= link_to "Log in", new_user_session_path, {:class => "link"} %>
+  </li>
+</div>

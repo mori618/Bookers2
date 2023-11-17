@@ -12,24 +12,36 @@
 
   <body>
     <header>
+      <nav class="navber navbar-light bg-dark">
+      <h1 class="Bookers2 text-center">Booker2</h1>
       <% if user_signed_in? %>
-        <li>
-        <%= link_to '投稿フォーム', new_book_path %>
+        <li class="link">
+          <%= link_to 'Users', new_book_path, {:class => "link"} %>
         </li>
-        <li>
-        <%= link_to 'マイページ', user_path(current_user.id) %>
+        <li class="link">
+          <%= link_to 'Books', books_path, {:class => "link"}%>
         </li>
-        <li>
-          <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+        <li class="link">
+        <%= link_to 'Home', user_path(current_user.id), {:class => "link"} %>
+        </li>
+        <li class="link">
+          <%= link_to "Log out", destroy_user_session_path, {:class => "link", method: :delete} %>
         </li>
       <% else %>
-        <li>
-          <%= link_to "新規登録", new_user_registration_path %>
+        <li class="link">
+          <%= link_to "Sign up", new_user_registration_path, {:class => "link"} %>
         </li>
-        <li>
-          <%= link_to "ログイン", new_user_session_path %>
+        <li class="link">
+          <%= link_to "Log in", new_user_session_path, {:class => "link"} %>
+        </li>
+        <li class="link">
+          <%= link_to 'About', about_path, {:class => "link"} %>
+        </li>
+        <li class="link">
+          <%= link_to 'Home', root_path, {:class => "link"} %>
         </li>
       <% end %>
+      </nav>
     </header>
     <%= yield %>
   </body>

@@ -1,1 +1,22 @@
 @use '~bootstrap/scss/bootstrap';
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.link{
+  color: white;
+}
+.Bookers2{
+  color: white;
+}
+.link-block{
+  background-color: green;
+  width: 100px;
+  margin: 10px;
+}
+.link-block-2{
+  background-color: blue;
+  width: 100px;
+  margin: 10px;
+}
