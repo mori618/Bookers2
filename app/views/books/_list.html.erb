@@ -1,0 +1,17 @@
+ 
+<div class="colum">
+  <div class="row">
+  <%= image_tag user.get_profile_image(100,100) %>
+  </div>
+  <div class="row">
+    <p class="col-2">名前</p>
+    <p class="col-2"><%= user.name %></p>
+  </div>
+  <div class="row">
+    <p class="col-2">紹介文</p>
+    <p class="col-8"><%= user.introduction %></p>
+  </div>
+  <% if @user.id == current_user.id %>
+  <p><%= link_to "プロフィール編集", edit_user_path(user.id) %></p>
+  <% end %>
+</div>
