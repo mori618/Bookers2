@@ -1,5 +1,6 @@
  
 <div class="colum">
+  <h3>USER</h3>
   <div class="row">
   <%= image_tag user.get_profile_image(100,100) %>
   </div>
@@ -14,4 +15,28 @@
   <% if @user.id == current_user.id %>
   <p><%= link_to "プロフィール編集", edit_user_path(user.id) %></p>
   <% end %>
+  <div class="row">
+    <div class"col">
+      <h3>NewBooks</h3>
+      <div class="row">
+        <% if new_book.errors.any? %>
+          <%= new_book.errors.count %>件のエラーが発生しました
+          <ul>
+            <% new_book.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+          </ul>
+        <% end %>
+        <%= form_with model: new_book do |f| %>
+          <h4>表紙</h4>
+          <%= f.file_field :image, accept: "image/*" %>
+          <h4>題名</h4>
+          <%= f.text_field :shop_name %>
+          <h4>感想</h4>
+          <%= f.text_area :caption %>
+          <%= f.submit '投稿' %>
+        <% end %>
+      </div>
+    </div>
+  </div>
 </div>

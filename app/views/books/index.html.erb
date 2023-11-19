@@ -1,5 +1,5 @@
 <div class="container d-flex justify-content-center">
-<%= render 'list', user: @user %>
+<%= render 'list', user: @user, new_book: @book %>
 <% @books.each do |book| %>
   <div>
     <%= link_to book_path(book.id) do %>
