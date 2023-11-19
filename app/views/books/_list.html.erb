@@ -1,4 +1,4 @@
- 
+
 <div class="colum">
   <h3>USER</h3>
   <div class="row">
@@ -12,7 +12,7 @@
     <p class="col-2">紹介文</p>
     <p class="col-8"><%= user.introduction %></p>
   </div>
-  <% if @user.id == current_user.id %>
+  <% if user.id == current_user.id %>
   <p><%= link_to "プロフィール編集", edit_user_path(user.id) %></p>
   <% end %>
   <div class="row">
@@ -31,9 +31,9 @@
           <h4>表紙</h4>
           <%= f.file_field :image, accept: "image/*" %>
           <h4>題名</h4>
-          <%= f.text_field :shop_name %>
+          <%= f.text_field :title %>
           <h4>感想</h4>
-          <%= f.text_area :caption %>
+          <%= f.text_area :body %>
           <%= f.submit '投稿' %>
         <% end %>
       </div>

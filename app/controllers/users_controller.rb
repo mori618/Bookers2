@@ -3,11 +3,19 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @books = @user.books
+    @book = Book.new
+  end
+
+  def index
+    @current_user = User.find(current_user.id)
+    @book = Book.new
+    @users = User.all
   end
 
   def edit
     @user = User.find(params[:id])
   end
+
   def update
     @user = User.find(params[:id])
     if @user.update(user_params)
@@ -27,7 +35,11 @@ class UsersController < ApplicationController
    private
 
   def user_params
-    params.require(:user).permit(:name, :introduction, :profile_image)
+    params.require(:user).permit(:name, :email, :introduction, :profile_image, :password, :password_confirmation)
+  end
+
+  def book_params
+    params.require(:book).permit(:title, :body, :image)
   end
 
   def is_matching_login_user
