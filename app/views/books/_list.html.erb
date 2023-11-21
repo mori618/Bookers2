@@ -17,7 +17,7 @@
   <% end %>
   <div class="row">
     <div class"col">
-      <h3>NewBooks</h3>
+      <h3>New book</h3>
       <div class="row">
         <% if new_book.errors.any? %>
           <%= new_book.errors.count %>件のエラーが発生しました
@@ -34,7 +34,7 @@
           <%= f.text_field :title %>
           <h4>感想</h4>
           <%= f.text_area :body %>
-          <%= f.submit '投稿' %>
+          <div class="btn"><%= f.submit 'Create Book' %></div>
         <% end %>
       </div>
     </div>

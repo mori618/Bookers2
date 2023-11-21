@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Bookers2</title>
+    <title>Bookers</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -11,35 +11,38 @@
   </head>
 
   <body>
-    <header>
-      <nav class="navber navbar-light bg-dark">
-      <h1 class="Bookers2 text-center">Booker2</h1>
+    <header class="contener">
+      <nav class="navber navbar-light bg-dark row">
+      <div class="link col-2 pull-left"><%= link_to 'Bookers', root_path, {:class => "link"} %></div>
       <% if user_signed_in? %>
-        <li class="link">
-          <%= link_to 'Users', users_path, {:class => "link"} %>
-        </li>
-        <li class="link">
-          <%= link_to 'Books', books_path, {:class => "link"}%>
-        </li>
-        <li class="link">
+        <div class="link col-1 pull-right">
         <%= link_to 'Home', user_path(current_user.id), {:class => "link"} %>
-        </li>
-        <li class="link">
+        </div>
+        <div class="link col-1 pull-right">
+          <%= link_to 'Users', users_path, {:class => "link"} %>
+        </div>
+        <div class="link col-1 pull-right">
+          <%= link_to 'Books', books_path, {:class => "link"}%>
+        </div>
+
+        <div class="link col-1 pull-right">
           <%= link_to "Log out", destroy_user_session_path, {:class => "link", method: :delete} %>
-        </li>
+        </div>
       <% else %>
-        <li class="link">
-          <%= link_to "Sign up", new_user_registration_path, {:class => "link"} %>
-        </li>
-        <li class="link">
-          <%= link_to "Log in", new_user_session_path, {:class => "link"} %>
-        </li>
-        <li class="link">
-          <%= link_to 'About', about_path, {:class => "link"} %>
-        </li>
-        <li class="link">
+        <div class="link col-1 pull-right">
           <%= link_to 'Home', root_path, {:class => "link"} %>
-        </li>
+        </div>
+        <div class="link col-1 pull-right">
+          <%= link_to 'About', home_about_path, {:class => "link"} %>
+        </div>
+
+        <div class="link col-1 pull-right">
+          <%= link_to "Sign up", new_user_registration_path, {:class => "link"} %>
+        </div>
+        <div class="link col-1 pull-right">
+          <%= link_to "Log in", new_user_session_path, {:class => "link"} %>
+        </div>
+
       <% end %>
       </nav>
     </header>
