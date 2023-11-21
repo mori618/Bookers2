@@ -15,11 +15,9 @@
     <p class="col">紹介文</p>
     <p class="col"><%= user.introduction %></p>
   </div>
-  <% if user.id == current_user.id %>
+
   <p><%= link_to "プロフィール編集", edit_user_path(user.id) %></p>
-  <% else %>
-  <p><%= link_to "プロフィール編集", books_path %></p>
-  <% end %>
+
   <div class="row">
     <div class="col">
       <h3>New book</h3>

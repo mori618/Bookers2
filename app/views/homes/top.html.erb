@@ -1,5 +1,8 @@
 <div class="container d-flex justify-content-center">
   <div class="col-4">
+    <% flash.each do |message_type, message| %>
+    <%= content_tag :div, message, class: message_type %>
+    <% end %>
     <h1 class="title">Bookers</h1>
     <div class="link-block-2 btn btn-info">
       <li class="link">
