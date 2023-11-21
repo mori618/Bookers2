@@ -1,14 +1,12 @@
 <div class="container">
   <div class="row">
-    <div class="colum-5">
-      <%= render 'books/list', user: @user, new_book: @book %>
-    </div>
-    <div class="colum-7">
+    <%= render 'books/list', user: @user, new_book: @book %>
+    <div class="col-md-8">
       <table>
         <% @books.each do |book| %>
           <%= link_to(user_path(book.user.id)) do %>
           <div class="card">
-            
+
               <div>
                 <p><%= image_tag book.get_image(200,200) %></p>
                 <p><%= image_tag book.user.get_profile_image(100,100) %></p>
