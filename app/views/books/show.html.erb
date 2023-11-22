@@ -3,8 +3,7 @@
     <div class="col-md-3">
     <%= render 'books/list', user: @show_user, new_book: @new_book %>
     </div>
-    <div class="offset-md-1"></div>
-    <div class="col-md-8">
+    <div class="col-md-8 offset-md-1">
       <h1>Book detail</h1>
       <%= image_tag @book.get_image(200,200) %>
       <%= link_to book_path(@book.id) do %>

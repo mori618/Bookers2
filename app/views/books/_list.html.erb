@@ -26,6 +26,7 @@
       <div class="row">
         <% if new_book.errors.any? %>
           <%= new_book.errors.count %>件のエラーが発生しました
+          <p>error</p>
           <ul>
             <% new_book.errors.full_messages.each do |message| %>
               <li><%= message %></li>

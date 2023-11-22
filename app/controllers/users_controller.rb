@@ -20,14 +20,11 @@ class UsersController < ApplicationController
   end
 
   def update
-    @user_update = User.find(params[:id])
-    if @user_update.update(user_params)
-      flash[:notice] = "successfully"
-      redirect_to user_path(@user_update.id)
-    else
-    @show_user = User.find(current_user.id)
-    @new_book = Book.new
     @user = User.find(params[:id])
+    if @user.update(user_params)
+      flash[:notice] = "successfully"
+      redirect_to user_path(@user.id)
+    else
     render :edit
     end
   end
@@ -52,7 +49,7 @@ class UsersController < ApplicationController
   def is_matching_login_user
     user = User.find(params[:id])
     unless user.id == current_user.id
-      redirect_to books_path
+      redirect_to user_path(current_user.id)
     end
   end
 end
