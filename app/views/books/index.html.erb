@@ -1,21 +1,26 @@
-<div class="container d-flex justify-content-center">
-<%= render 'list', user: @user, new_book: @book %>
-
-<% @books.each do |book| %>
-  <div>
-    <%= link_to book_path(book.id) do %>
-      <%= image_tag book.get_image(200,200) %>
-    <% end %>
-    <%= link_to(user_path(book.user.id)) do %>
-    <p>ユーザー：<%= image_tag book.user.get_profile_image(100,100) %></p>
-    <% end %>
-
-    <%= link_to book_path(book.id) do %>
-      <%= book.title %>
-    <% end %>
-    <p>感想：<%= book.body %></p>
-    <p>ユーザーネーム：<%= book.user.name %></p>
-
+<div class="container">
+  <div class="row">
+    <div class="col-md-3">
+      <%= render 'list', user: @user, new_book: @book %>
+    </div>
+    <div class="offset-md-1"></div>
+    <div class="col-md-8">
+      <% @books.each do |book| %>
+        <div>
+          <%= link_to book_path(book.id) do %>
+            <%= image_tag book.get_image(200,200) %>
+          <% end %>
+          <%= link_to(user_path(book.user.id)) do %>
+          <p>ユーザー：<%= image_tag book.user.get_profile_image(100,100) %></p>
+          <% end %>
+      
+          <%= link_to book_path(book.id) do %>
+            <%= book.title %>
+          <% end %>
+          <p>感想：<%= book.body %></p>
+          <p>ユーザーネーム：<%= book.user.name %></p>
+        </div>
+      <% end %>
+    </div>
   </div>
-<% end %>
 </div>
